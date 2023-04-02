@@ -249,7 +249,6 @@ export const Content = styled("section", {
   ".title": {
     display: "flex",
     height: "100px",
-    marginBottom: "1.5rem",
     alignItems: "center",
     justifyContent: "center",
     color: "$blackGray",
@@ -258,7 +257,7 @@ export const Content = styled("section", {
     fontSize: "1.5rem",
     textAlign: "center",
 
-    margin: "0 auto",
+    margin: "2rem auto",
     width: "80%",
   },
 
