@@ -41,7 +41,7 @@ export default function Footer() {
 
         <div className="contact">
           <span className="contactTitle">Contact Us</span>
-          <p onClick={() => openWhatsapp()}>+ 44 7397 873825</p>
+          <p>+44 01753 316113</p>
           <p onClick={() => sendEmail()}>exclusiveremoval@gmail.com</p>
           <p onClick={() => openMaps()}>75b Lewins Way, Slough SL1 5HF, UK</p>
         </div>
