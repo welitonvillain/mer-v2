@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { MdArrowRight, MdArrowDropDown } from "react-icons/md";
 import { HiArrowLongRight } from "react-icons/hi2";
@@ -13,18 +13,19 @@ type ServiceCardType = {
   image: StaticImageData;
   title: string;
   content: string;
+  setShowModal: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function ServiceCard({
   image,
   title,
   content,
+  setShowModal,
 }: ServiceCardType) {
   const [opened, setOpened] = useState(false);
 
   return (
     <ServiceContainer>
-      {/* <span className="containerTitle">{title}</span> */}
       <div className="container">
         <Service
           className="domestic-removals"
@@ -52,14 +53,10 @@ export default function ServiceCard({
             dangerouslySetInnerHTML={{ __html: content }}
           />
 
-          <a
-            href="https://rm-myexclusiveremovals.co.uk/survey.php"
-            target={"_blank"}
-            className="quote"
-          >
+          <button onClick={() => setShowModal(true)} className="quote">
             Get a quote
             <HiArrowLongRight />
-          </a>
+          </button>
         </ServiceContent>
       </div>
     </ServiceContainer>

@@ -196,6 +196,9 @@ export const ServiceContent = styled("div", {
     fontWeight: "bold",
     gap: "0.5rem",
     margin: "1.5rem 0 1rem 0",
+    border: "none",
+    background: "transparent",
+    cursor: "pointer",
 
     "&:hover": {
       color: "$yellow",

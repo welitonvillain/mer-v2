@@ -25,12 +25,16 @@ import {
 
 import reviewsImage from "/public/reviews.jpg";
 import ReviewsSlider from "@/components/ReviewsSlider";
+import Modal from "@/components/Modal";
+import { useState } from "react";
 
 export default function Reviews() {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
       <Container>
-        <Header />
+        <Header formRef={null} />
         <ImageContainer>
           <div className="gradient" />
           <Image
@@ -45,14 +49,10 @@ export default function Reviews() {
             <span>See what our customers are saying about us.</span>
 
             <Action>
-              <a
-                href="https://rm-myexclusiveremovals.co.uk/survey.php"
-                target={"_blank"}
-                className="quote"
-              >
+              <button onClick={() => setOpenModal(true)} className="quote">
                 Get a quote
                 <HiArrowLongRight />
-              </a>
+              </button>
               <a onClick={() => openWhatsapp()} className="whats">
                 <FaWhatsapp />
               </a>
@@ -121,19 +121,16 @@ export default function Reviews() {
         <ActionTitle>Make a quote or call us for a conversation</ActionTitle>
 
         <ReviewAction>
-          <a
-            href="https://rm-myexclusiveremovals.co.uk/survey.php"
-            target={"_blank"}
-            className="quote"
-          >
+          <button onClick={() => setOpenModal(true)} className="quote">
             Get a quote
             <HiArrowLongRight />
-          </a>
+          </button>
           <a onClick={() => openWhatsapp()} className="whats">
             <FaWhatsapp />
           </a>
         </ReviewAction>
       </Content>
+      <Modal showModal={openModal} setShowModal={setOpenModal} />
     </>
   );
 }

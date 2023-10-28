@@ -28,12 +28,16 @@ import familyImage from "/public/family.jpg";
 import businessImage from "/public/business.jpg";
 import satisfiedImage from "/public/satisfied.jpg";
 import noStressImage from "/public/no-stress.jpg";
+import { useState } from "react";
+import Modal from "@/components/Modal";
 
 export default function Services() {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
       <Container>
-        <Header />
+        <Header formRef={null} />
         <ImageContainer>
           <div className="gradient" />
           <Image
@@ -48,14 +52,10 @@ export default function Services() {
             <span>Berkshire Movers Who Genuinely Care About Their Clients</span>
 
             <Action>
-              <a
-                href="https://rm-myexclusiveremovals.co.uk/survey.php"
-                target={"_blank"}
-                className="quote"
-              >
+              <button onClick={() => setOpenModal(true)} className="quote">
                 Get a quote
                 <HiArrowLongRight />
-              </a>
+              </button>
               <a onClick={() => openWhatsapp()} className="whats">
                 <FaWhatsapp />
               </a>
@@ -203,6 +203,7 @@ export default function Services() {
           </div>
         </Mission>
       </Content>
+      <Modal showModal={openModal} setShowModal={setOpenModal} />
     </>
   );
 }

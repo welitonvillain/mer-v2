@@ -229,3 +229,52 @@ export const Action = styled("div", {
     },
   },
 });
+
+export const Content = styled("section", {
+  display: "flex",
+  flexDirection: "column",
+  width: "100vw",
+  height: "100%",
+  background: "$white",
+  color: "$black",
+
+  padding: "2rem 1rem",
+
+  ".title": {
+    display: "flex",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "$blackGray",
+
+    fontWeight: "700",
+    fontSize: "1.5rem",
+    textAlign: "center",
+  },
+
+  userSelect: "none",
+
+  ".iframe": {
+    height: "100%",
+    margin: "4rem 0",
+
+    iframe: {
+      border: "0",
+      height: "100vh",
+    },
+  },
+
+  "@media (min-width: 600px)": {
+    ".title": {
+      marginTop: "0.5rem",
+      fontSize: "2rem",
+    },
+  },
+
+  "@media (min-width: 1024px)": {
+    ".title": {
+      marginTop: "2rem",
+      fontSize: "3rem",
+    },
+  },
+});
