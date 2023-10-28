@@ -23,6 +23,7 @@ import { openInstagram } from "@/pages/api/Instagram";
 import { openFacebook } from "@/pages/api/Facebook";
 
 import servicesImage from "/public/services.jpg";
+import Modal from "@/components/Modal";
 
 export default function Services() {
   const [serviceCards, setServiceCards]: [
@@ -30,10 +31,12 @@ export default function Services() {
     Dispatch<SetStateAction<Card[]>>
   ] = useState(cards());
 
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
       <Container>
-        <Header />
+        <Header formRef={null} />
         <ImageContainer>
           <div className="gradient" />
           <Image
@@ -51,14 +54,10 @@ export default function Services() {
             </span>
 
             <Action>
-              <a
-                href="https://rm-myexclusiveremovals.co.uk/survey.php"
-                target={"_blank"}
-                className="quote"
-              >
+              <button onClick={() => setOpenModal(true)} className="quote">
                 Get a quote
                 <HiArrowLongRight />
-              </a>
+              </button>
               <a onClick={() => openWhatsapp()} className="whats">
                 <FaWhatsapp />
               </a>
@@ -98,17 +97,18 @@ export default function Services() {
 
         {serviceCards.map((card) => (
           <>
-            <div className="separator" />
-
+            <div key={card.title} className="separator" />
             <ServiceCard
               key={card.id}
               title={card.title}
               image={card.image}
               content={card.content}
+              setShowModal={setOpenModal}
             />
           </>
         ))}
       </Content>
+      <Modal showModal={openModal} setShowModal={setOpenModal} />
     </>
   );
 }

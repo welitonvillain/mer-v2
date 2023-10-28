@@ -73,7 +73,7 @@ export const Menu = styled("div", {
 export const Contact = styled("div", {
   width: "20%",
 
-  a: {
+  h1: {
     display: "flex",
     width: "100%",
     minWidth: "200px",
